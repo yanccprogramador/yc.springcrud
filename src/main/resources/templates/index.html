@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+<head >
+<meta charset="UTF-8"/>
+<title>Spring</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body >
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <div class="row">
+      <nav>
+    <div class="nav-wrapper light-green accent-3">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/cadastro">Cadastro</a></li>
+      </ul>
+    </div>
+  </nav>
+      </div>
+      <div class="row">
+      <div class="col s12 m8 l2 offset l2"><br/></div>
+       <div class="col s12 m8 l8">
+    
+       <table class="bordered responsive-table highlight">
+       <thead>
+          <tr>
+              <th data-field="nome">Nome</th>
+              <th data-field="cpf">CPF</th>
+          </tr>
+        </thead>
+       <tbody>
+    
+         <tr th:each="pessoa: ${pessoa}"> 
+         <td th:text="${pessoa.nome}"></td> 
+         <td th:text="${pessoa.cpf}"></td>
+ 
+         <td>
+         <form th:object="${pessoa}"  th:action="@{/delete/{id}(id=${pessoa.id})}"  method="post">
+         <input type="submit" value="excluir" class="btn waves-effect waves-dark"/>
+         </form>
+         </td>
+         <td>
+         <form th:object="${pessoa}" th:action="@{/{id}(id=${pessoa.id})}" method="post">
+         <input type="submit"  value="editar" class="btn waves-effect waves-light" formmethod="post"/>
+         </form>
+         </td> 
+         </tr>
+         </tbody>
+       
+       
+       </table> 
+       </div>
+      <div class="col s12 m8 l2 offset -l2"><br/></div>
+      
+      </div>
+     </body> 
+</html>

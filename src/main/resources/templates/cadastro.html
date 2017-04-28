@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <div class="row">
+      <nav>
+    <div class="nav-wrapper light-green accent-3">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/cadastro">Cadastro</a></li>
+      </ul>
+    </div>
+  </nav>
+      </div>
+ <div class="row">
+      <form method="POST" th:object="${clienteModel}" th:action="@{/inserir}" >
+       <div class="col s12 m8 l6 ">
+         <input type="hidden" th:field="*{id}"/> 
+         nome:
+         <input type="text" id="nome" th:field="*{nome}"/>
+         cpf
+         <input type="text" id="cpf" th:field="*{cpf}" />
+         <input type="submit" class="btn waves-effect waves-dark" value="adicionar"/>
+         </div>
+      </form>
+      </div>
+  
+</body>
+</html>

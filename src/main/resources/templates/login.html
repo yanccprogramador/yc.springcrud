@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/layout-simples}">
+
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+<th:block layout:fragment="conteudo">
+	<form th:action="@{/home}" method="get">
+			
+			
+			
+				Por favor, faça o login.
+			
+			
+			<div class="row">
+				<div class="col s12 m8 l6">
+				  
+					<input type="text" placeholder="Seu usuário" 
+						autofocus="autofocus" name="username"/>
+					<input type="password" placeholder="Sua senha" name="password"/>
+					
+					<button type="submit" class="btn waves-effect waves-dark">Entrar</button>
+				   
+				</div>
+			</div>
+		
+		
+	</form>
+</th:block>
+
+</html>
